@@ -15,10 +15,14 @@ import java.io.Serializable;
 @Builder
 @Table(name="domicilio")
 @Audited
-public class Domicilio implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String calle;
-    private int numero;
+public class Domicilio extends Base {
+   @Column(name = "calle")
+   private String calle;
+   @Column(name = "numero")
+   private int numero;
+
+   @ManyToOne(optional = false)
+   @JoinColumn(name = "fk_localidad")
+   private Localidad localidad;
+
 }

@@ -1,24 +1,15 @@
 package com.example.inicial1.controllers;
 
+import com.example.inicial1.entities.Localidad;
 import com.example.inicial1.entities.Persona;
+import com.example.inicial1.services.LocalidadServiceImpl;
 import com.example.inicial1.services.PersonaServicesImpl;
 import org.springdoc.core.converters.models.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-@RestController
-@RequestMapping(path = "api/v1/personas")
-@CrossOrigin(origins = "*")
-public abstract class PersonaController extends BaseControllerImpl<Persona, PersonaServicesImpl>{
- // @Autowired
-//PersonaServices servicio;
-    private PersonaServicesImpl personaServicesImpl;
-    public PersonaController(PersonaServicesImpl personaServicesImpl){
-        this.personaServicesImpl = personaServicesImpl;
-    }
-
+public abstract class LocalidadController extends BaseControllerImpl<Localidad, LocalidadServiceImpl>{
 
     @GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro){
